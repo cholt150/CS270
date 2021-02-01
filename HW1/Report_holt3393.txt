@@ -1,0 +1,15 @@
+Results, unoptimized:
+
+Program Entry Point: 0x400490
+
+Data Size: 76 Bytes
+Data addr: 0x0000000000601040
+
+Main: 336 Bytes, addr = 0x000000000000027d
+bubblesort: 171 Bytes, addr = 0x0000000000000000
+quicksort: 318 Bytes, addr = 0x00000000000000ab
+selectionsort: 1148 Bytes, addr = 0x00000000000001e9
+
+Library Subroutines
+putchar: addr = 0x000000601018
+printf: addr = 0x000000601020
