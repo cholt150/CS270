@@ -21,10 +21,10 @@ readelf -a a.out >readelf_logs/unoptimized/elflog_exec.txt
 rm *.o
 rm *.out
 
-gcc main.c -cO
-gcc quicksort.c -cO
-gcc selectionsort.c -cO
-gcc bubblesort.c -cO
+gcc main.c -c -O
+gcc quicksort.c -c -O
+gcc selectionsort.c -c -O
+gcc bubblesort.c -c -O
 gcc main.c -O
 
 readelf -a main.o >readelf_logs/optimized/elflog_main.txt
