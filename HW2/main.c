@@ -26,8 +26,10 @@ int makearg(char *s, char ***args) {
         if(s[i] == ' ') argc++;
         i++;
     }
-    argc++; //account for the last word
+    if(s[i-1] != ' ') {
+        argc++; //account for the last word when the string does not end with a space
+    }
 
-    
+
     return argc;
 }
