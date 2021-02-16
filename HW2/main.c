@@ -7,18 +7,18 @@
 int makearg(char *s, char ***args);
 
 int main() {
-    char **argv;
+    static char **argvec;
     char str[] = "ls -l file";
     int argc;
     #if DEBUG
         printf("calling makearg func\n");
     #endif
-    argc = makearg(str, &argv);
+    argc = makearg(str, &argvec);
     printf("argc is: %d\n",argc);
     printf("Printing argv...\n");
     int i = 0;
-    while(argv[i] != NULL) {
-        printf("%s\n",argv[i]);
+    while(*argvec[i] != NULL) {
+        printf("%s\n",*argvec[i]);
         i++;
     }
     return(0);
@@ -41,7 +41,7 @@ int makearg(char *s, char ***args) {
         args = NULL;
         return 0;
     }
-    char **temp_array = calloc(argc+1, sizeof(char*));
+    args = calloc(argc+1, sizeof(char*));
 
     char *token;
     int j = 0;
@@ -55,21 +55,33 @@ int makearg(char *s, char ***args) {
         #endif
 
         if(token != NULL) {
-            temp_array[j] = (char*)calloc(strlen(token),sizeof(char));
+            #if DEBUG
+                printf("DEBUG: Length of token is: %i\n",strlen(token));
+            #endif
+            args[j] = (char*)calloc(strlen(token),sizeof(char));
             i = 0;
             for(i=0;i<strlen(token);i++) {
-                temp_array[j][i] = token[i];
+                args[j][i] = token[i];
             }
             #if DEBUG
-                printf("DEBUG: %s\n",temp_array[j]);
+                printf("DEBUG: %s\n",*args[j]);
             #endif
             j++;
         }
         token = strtok(NULL," ");
     } while(token != NULL);
 
+    #if DEBUG
+        i = 0;
+        printf("DEBUG: PRINTING args FROM WITHIN makearg()\n");
+        while(*args[i] != NULL) {
+            printf("%s\n",*args[i]);
+            i++;
+        }
+    #endif
+
     // Organize return values
-    temp_array[argc] = NULL; //append trailing NULL
-    args = &temp_array;
+    // temp_array[argc] = NULL; //append trailing NULL
+    // args = &temp_array;
     return argc;
 }
