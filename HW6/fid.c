@@ -72,37 +72,6 @@ int is_elf(char* filename) {
         return 0;
 }
 
-int main(int argc, char *argv[]) {
-    if(argc != 2) {
-        printf("More or less than the required number of arguments!\n");
-        return -1;
-    }
-    if(is_ps(argv[1])) {
-        printf("I think the file is a postscript file!\n");
-        return 0;
-    }
-    else if(is_pdf(argv[1])) {
-        printf("I think the file is a PDF file!\n");
-        return 0;
-    }
-    else if(is_elf(argv[1])) {
-        printf("I think the file is an ELF file!\n");
-        return 0;
-    }
-    else if(is_dos(argv[1])) {
-        printf("I think the file is a DOS ASCII file!\n");
-        return 0;
-    }
-    else if(is_ascii(argv[1])) {
-        printf("I think the file is an ASCII file!\n");
-        return 0;
-    }
-    else {
-        printf("Unknown Binary file!\n");
-        return 0;
-    }
-}
-
 int fid(char* filename) {
     if(is_ps(filename)) {
         printf("I think the file is a postscript file!\n");
@@ -129,3 +98,34 @@ int fid(char* filename) {
         return 0;
     }
 }
+
+// int main(int argc, char *argv[]) {
+//     if(argc != 2) {
+//         printf("More or less than the required number of arguments!\n");
+//         return -1;
+//     }
+//     if(is_ps(argv[1])) {
+//         printf("I think the file is a postscript file!\n");
+//         return 0;
+//     }
+//     else if(is_pdf(argv[1])) {
+//         printf("I think the file is a PDF file!\n");
+//         return 0;
+//     }
+//     else if(is_elf(argv[1])) {
+//         printf("I think the file is an ELF file!\n");
+//         return 0;
+//     }
+//     else if(is_dos(argv[1])) {
+//         printf("I think the file is a DOS ASCII file!\n");
+//         return 0;
+//     }
+//     else if(is_ascii(argv[1])) {
+//         printf("I think the file is an ASCII file!\n");
+//         return 0;
+//     }
+//     else {
+//         printf("Unknown Binary file!\n");
+//         return 0;
+//     }
+// }
