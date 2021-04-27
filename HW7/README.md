@@ -1,0 +1,1 @@
+This assignment is not complete. I did not have time to complete the assignment as given. I made a socket based, 10 character echo server to demonstrate the use of sockets in C. It functions as expected.
